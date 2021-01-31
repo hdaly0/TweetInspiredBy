@@ -69,8 +69,7 @@ def manage_inbound_tweet(status):
                  "tweet_in_user": screen_name,
                  "response_out": response_text})
 
-    original_tweet_url = f"https://twitter.com/{screen_name}/status/{status_id}"
-    api.update_status(status=response_text, attachment_url=original_tweet_url)
+    api.update_status(status=response_text, in_reply_to_status_id=status_id)
 
 
 def pull_new_inbound_tweets():
