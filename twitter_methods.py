@@ -24,6 +24,7 @@ API_KEY = os.getenv("TWITTER_API_KEY")
 API_SECRET_KEY = os.getenv("TWITTER_API_SECRET_KEY")
 ACCESS_TOKEN = os.getenv("TWITTER_ACCESS_TOKEN")
 ACCESS_TOKEN_SECRET = os.getenv("TWITTER_ACCESS_TOKEN_SECRET")
+USER_HANDLE = os.getenv("TWITTER_USER_HANDLE") # TweetInspiredBy
 
 # Authenticate to twitter
 auth = tweepy.OAuthHandler(API_KEY, API_SECRET_KEY)
@@ -31,6 +32,9 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
 # Get API
 api = tweepy.API(auth)
+
+# Get Twitter Account ID
+current_user_id = api.get_user(USER_HANDLE).id
 
 # Define regex to only match standard characters and underscore
 regex_matching_pattern = "[^a-zA-Z0-9_ ]"
@@ -51,6 +55,11 @@ def remove_non_standard_characters_regex(text):
 
 
 def manage_inbound_tweet(status):
+    # For streaming, do not want to reply to our own posts - check if incoming message was posted by this user
+    status_user_id = status.user.id
+    if status_user_id == current_user_id:
+        return
+
     status_id = status.id
     text = status.text
     screen_name = status.user.screen_name
