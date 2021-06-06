@@ -66,6 +66,7 @@ A twitter development account will need to be created, along with a new project 
     export TWITTER_API_SECRET_KEY=<API secret key>
     export TWITTER_ACCESS_TOKEN=<Access token>
     export TWITTER_ACCESS_TOKEN_SECRET=<Access token secret>
+    export USER_HANDLE=<User handle of the twitter account>
     ```
     Information about setting up twitter apps and getting access to twitter apis: https://developer.twitter.com/en/docs/apps/overview
     
