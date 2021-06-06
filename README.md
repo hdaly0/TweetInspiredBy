@@ -66,7 +66,7 @@ A twitter development account will need to be created, along with a new project 
     export TWITTER_API_SECRET_KEY=<API secret key>
     export TWITTER_ACCESS_TOKEN=<Access token>
     export TWITTER_ACCESS_TOKEN_SECRET=<Access token secret>
-    export USER_HANDLE=<User handle of the twitter account>
+    export TWITTER_USER_HANDLE=<User handle of the twitter account>
     ```
     Information about setting up twitter apps and getting access to twitter apis: https://developer.twitter.com/en/docs/apps/overview
     
@@ -77,7 +77,6 @@ to run the application as a background task (e.g. if you are running the applica
 ##### Notes:
 - On some machines `python3` may be aliased (and accessed) as `python`, and `pip3` as `pip`.
 - You can run just the markov model code (without any twitter streaming) for development and testing locally by running the `text_generation_methods.py` file only.
-- This bot is 
 
 
 ## Notes on best practice
